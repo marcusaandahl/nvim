@@ -16,22 +16,42 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true -- Needed for theme
 
 -- THEME SETTINGS
-local tokyo = require("tokyonight")
-tokyo.setup({
-  style = "moon"
-})
-tokyo.load()
+vim.cmd.colorscheme "catppuccin-mocha"
 
 -- LSP SETTINGS
 vim.lsp.enable("lua_ls") -- brew install lua-language-server
 vim.lsp.enable("jdtls") -- brew install jdtls
 vim.lsp.enable("ts_ls") -- npm install -g typescript-language-server typescript
 vim.lsp.enable("bashls") -- npm i -g bash-language-server
+vim.lsp.enable("tailwindcss") -- npm install -g @tailwindcss/language-server
+vim.lsp.enable("svelte") -- npm install -g svelte-language-server
+vim.lsp.enable("rust_analyzer") -- brew install rust-analyzer
+vim.lsp.enable("pyright") -- npm install -g pyright
+vim.lsp.enable("docker_language_server") -- go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
+vim.lsp.enable("cssmodules_ls") -- npm install -g cssmodules-language-server
+vim.lsp.enable("css_variables") -- npm i -g css-variables-language-server
 
 
 -- ENABLE HIGHLIGHTING
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
+  pattern = {
+    'lua',
+    'svelte',
+    'ts',
+    'js',
+    'tsx',
+    'jsx',
+    'mts',
+    'mjs',
+    'json',
+    'html',
+    'css',
+    'rs',
+    'java',
+    'yaml',
+    'md',
+    'py'
+  },
   callback = function() vim.treesitter.start() end,
 })
 
