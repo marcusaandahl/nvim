@@ -1,11 +1,8 @@
 local wk = require("which-key")
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
--- local harpoon = require("harpoon")
 local gitsigns = require("gitsigns")
 local telescope = require("telescope.builtin")
-
--- harpoon:setup()
 
 wk.add({
   {
@@ -32,6 +29,16 @@ wk.add({
     },
   },
 
+  -- Format
+  {
+    mode = "n",
+    "<leader>o",
+    group = "F[O]rmat",
+    function()
+      vim.lsp.buf.format { async = true }
+    end
+  },
+
   -- Git
   {
     mode = "n",
@@ -48,65 +55,6 @@ wk.add({
       desc = "[G]it [D]iff"
     }
   },
-
-  -- Harpoon
-  -- {
-  --   mode = "n",
-  --   {
-  --     "<leader>a",
-  --     function() harpoon:list():add() end,
-  --     desc = "[A]dd to Harpoon",
-  --     remap = true
-  --   },
-  --   {
-  --     "<leader>r",
-  --     function() harpoon:list():remove() end,
-  --     desc = "[R]emove from Harpoon",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-e>",
-  --     function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
-  --     desc = "Edit Harpoon",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-z>",
-  --     function() harpoon:list().select(1) end,
-  --     desc = "Select Harpoon 1",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-x>",
-  --     function() harpoon:list().select(2) end,
-  --     desc = "Select Harpoon 2",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-c>",
-  --     function() harpoon:list().select(3) end,
-  --     desc = "Select Harpoon 3",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-v>",
-  --     function() harpoon:list().select(4) end,
-  --     desc = "Select Harpoon 4",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-n>",
-  --     function() harpoon:list().next() end,
-  --     desc = "Harpoon Previous",
-  --     remap = true
-  --   },
-  --   {
-  --     "<C-m>",
-  --     function() harpoon:list().next() end,
-  --     desc = "Harpoon Next",
-  --     remap = true
-  --   },
-  -- },
 
   -- Hop
   {
