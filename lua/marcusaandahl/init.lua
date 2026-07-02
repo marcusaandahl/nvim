@@ -11,7 +11,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.wrap = false -- Don't wrap text
+vim.opt.wrap = false         -- Don't wrap text
 vim.opt.incsearch = true
 vim.opt.termguicolors = true -- Needed for theme
 
@@ -19,14 +19,14 @@ vim.opt.termguicolors = true -- Needed for theme
 vim.cmd.colorscheme "catppuccin-mocha"
 
 -- LSP SETTINGS
-vim.lsp.enable("lua_ls") -- brew install lua-language-server
-vim.lsp.enable("jdtls") -- brew install jdtls
-vim.lsp.enable("ts_ls") -- npm install -g typescript-language-server typescript
-vim.lsp.enable("bashls") -- npm i -g bash-language-server
-vim.lsp.enable("tailwindcss") -- npm install -g @tailwindcss/language-server
-vim.lsp.enable("svelte") -- npm install -g svelte-language-server
-vim.lsp.enable("rust_analyzer") -- brew install rust-analyzer
-vim.lsp.enable("pyright") -- npm install -g pyright
+vim.lsp.enable("lua_ls")                 -- brew install lua-language-server
+vim.lsp.enable("jdtls")                  -- brew install jdtls
+vim.lsp.enable("ts_ls")                  -- npm install -g typescript-language-server typescript
+vim.lsp.enable("bashls")                 -- npm i -g bash-language-server
+vim.lsp.enable("tailwindcss")            -- npm install -g @tailwindcss/language-server
+vim.lsp.enable("svelte")                 -- npm install -g svelte-language-server
+vim.lsp.enable("rust_analyzer")          -- brew install rust-analyzer
+vim.lsp.enable("pyright")                -- npm install -g pyright
 vim.lsp.enable("docker_language_server") -- go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
 vim.lsp.enable("cssmodules_ls") -- npm install -g cssmodules-language-server
 vim.lsp.enable("css_variables") -- npm i -g css-variables-language-server
@@ -57,6 +57,19 @@ vim.api.nvim_create_autocmd('FileType', {
     'gosum'
   },
   callback = function() vim.treesitter.start() end,
+})
+
+-- COPILOT HIGHLIGHTING
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = 'solarized',
+  -- group = ...,
+  callback = function()
+    vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
+      fg = '#555555',
+      ctermfg = 8,
+      force = true
+    })
+  end
 })
 
 -- KEY MAPPINGS
