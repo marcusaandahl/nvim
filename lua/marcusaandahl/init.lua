@@ -30,7 +30,7 @@ vim.lsp.enable("pyright") -- npm install -g pyright
 vim.lsp.enable("docker_language_server") -- go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
 vim.lsp.enable("cssmodules_ls") -- npm install -g cssmodules-language-server
 vim.lsp.enable("css_variables") -- npm i -g css-variables-language-server
-
+vim.lsp.enable("gopls") -- brew install gopls
 
 -- ENABLE HIGHLIGHTING
 vim.api.nvim_create_autocmd('FileType', {
@@ -50,7 +50,11 @@ vim.api.nvim_create_autocmd('FileType', {
     'java',
     'yaml',
     'md',
-    'py'
+    'py',
+    'ipynb',
+    'go',
+    'gomod',
+    'gosum'
   },
   callback = function() vim.treesitter.start() end,
 })
