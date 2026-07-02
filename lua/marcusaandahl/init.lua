@@ -28,48 +28,48 @@ vim.lsp.enable("svelte")                 -- npm install -g svelte-language-serve
 vim.lsp.enable("rust_analyzer")          -- brew install rust-analyzer
 vim.lsp.enable("pyright")                -- npm install -g pyright
 vim.lsp.enable("docker_language_server") -- go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
-vim.lsp.enable("cssmodules_ls") -- npm install -g cssmodules-language-server
-vim.lsp.enable("css_variables") -- npm i -g css-variables-language-server
-vim.lsp.enable("gopls") -- brew install gopls
+vim.lsp.enable("cssmodules_ls")          -- npm install -g cssmodules-language-server
+vim.lsp.enable("css_variables")          -- npm i -g css-variables-language-server
+vim.lsp.enable("gopls")                  -- brew install gopls
 
 -- ENABLE HIGHLIGHTING
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {
-    'lua',
-    'svelte',
-    'ts',
-    'js',
-    'tsx',
-    'jsx',
-    'mts',
-    'mjs',
-    'json',
-    'html',
-    'css',
-    'rs',
-    'java',
-    'yaml',
-    'md',
-    'py',
-    'ipynb',
-    'go',
-    'gomod',
-    'gosum'
-  },
-  callback = function() vim.treesitter.start() end,
+	pattern = {
+		'lua',
+		'svelte',
+		'ts',
+		'js',
+		'tsx',
+		'jsx',
+		'mts',
+		'mjs',
+		'json',
+		'html',
+		'css',
+		'rs',
+		'java',
+		'yaml',
+		'md',
+		'py',
+		'ipynb',
+		'go',
+		'gomod',
+		'gosum'
+	},
+	callback = function() vim.treesitter.start() end,
 })
 
 -- COPILOT HIGHLIGHTING
 vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = 'solarized',
-  -- group = ...,
-  callback = function()
-    vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
-      fg = '#555555',
-      ctermfg = 8,
-      force = true
-    })
-  end
+	pattern = 'solarized',
+	-- group = ...,
+	callback = function()
+		vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
+			fg = '#555555',
+			ctermfg = 8,
+			force = true
+		})
+	end
 })
 
 -- KEY MAPPINGS
